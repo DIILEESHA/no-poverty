@@ -1,6 +1,10 @@
 .main__header__container {
   height: 120vh;
   position: relative;
+  margin-top: -56px;
+}
+.main {
+  position: fixed;
 }
 .header__container {
   height: 100vh;

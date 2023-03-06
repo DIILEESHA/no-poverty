@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
+import Mainnav from "../Nav/Mainnav/Mainnav";
 import "./header.css";
 
 const Header = () => {
@@ -12,6 +13,7 @@ const Header = () => {
       onExit={() => setCounter(false)}
     >
       <div className="main__header__container">
+
         <div className="header__container">
           <div className="header__details__container">
             <h3 className="header__top__topic">You too, can endPoverty!</h3>
