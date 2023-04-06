@@ -37,16 +37,16 @@
   background: #fcc001;
   backdrop-filter: blur(2px);
   padding: 7px 15px;
-  border: none;
+  border: 1px solid transparent;
   text-transform: capitalize;
   font-weight: 700;
   border-radius: 5px;
   cursor: pointer;
 }
 .nav__btn:hover {
-  background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
+  /* background-color: transparent; */
+  /* border: 1px solid #333; */
+  /* color: #444; */
 }
 .nav__ul__section {
   display: flex;
@@ -57,4 +57,6 @@
 }
 .main__nav__container.colorChange {
   background-color: #fff;
+  color: #343;
+  font-weight: 600;
 }
