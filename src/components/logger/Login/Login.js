@@ -1,6 +1,7 @@
 import React from "react";
 import "./login.css";
 import logo from "../../../assets/log.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -27,15 +28,17 @@ const Login = () => {
           <button className="log__btn">login</button>
           <span className="log__span">
             Have not an Account?
-            <span
-              style={{
-                color: "#0C6E68",
-                padding: "0px 2px",
-                cursor: "pointer",
-              }}
-            >
-              Sign Up
-            </span>
+            <Link to="/signup">
+              <span
+                style={{
+                  color: "#0C6E68",
+                  padding: "0px 2px",
+                  cursor: "pointer",
+                }}
+              >
+                Sign Up
+              </span>
+            </Link>
           </span>
         </div>
       </div>
