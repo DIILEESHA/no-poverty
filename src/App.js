@@ -1,15 +1,29 @@
-import "./app.css";
+import './App.css'
 import Maingooter from "./components/footer/Mainfooter/Maingooter";
 import Subfooter from "./components/footer/Subfooter/Subfooter";
 import Combinenav from "./components/Nav/Combinednav/Combinenav";
+import New from './components/sehan/new1/new';
+import View from './components/sehan/new1/view';
+import Details from './components/sehan/new1/details';
+import Edit from './components/sehan/new1/edit';
 import Home from "./pages/Home/Home";
+import { BrowserRouter } from 'react-router-dom';
 function App() {
-  return (
+  return ( 
     <div className="App">
-      <Combinenav />
+      {/* <Combinenav />
       <Home />
       <Maingooter />
-      <Subfooter />
+       <Subfooter /> 
+       
+      */}
+
+        <New/>
+        <View/>
+        <Details/>
+      <Edit/>
+      
+     
     </div>
   );
 }
