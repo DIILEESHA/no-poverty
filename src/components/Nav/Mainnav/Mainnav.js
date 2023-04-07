@@ -31,7 +31,7 @@ const Mainnav = () => {
         <li className="nav__li__section">home</li>
         <li className="nav__li__section">about us </li>
         <li className="nav__li__section">contact us</li>
-        <li className="nav__li__section">sessions</li>
+        <a href="./Events"><li className="nav__li__section">sessions</li></a>
         <li className="nav__li__section">jobs</li>
       </div>
       <div className="nav__credention__btn__section">
