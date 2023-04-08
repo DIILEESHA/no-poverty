@@ -12,7 +12,7 @@ import Combinenav from "../../components/Nav/Combinednav/Combinenav";
 import Maingooter from "../../components/footer/Mainfooter/Maingooter";
 import Subfooter from "../../components/footer/Subfooter/Subfooter";
 
-export default function AlignItemsList() {
+export default function ViewEvents() {
     return (
 
 
@@ -29,9 +29,9 @@ export default function AlignItemsList() {
 
                     <List sx={{ width: '100%', opacity: '70%', backgroundSize: 'cover', minHeight: '100vh', backgroundImage: `url('https://www.thebalancemoney.com/thmb/j65dIWXtJFEPmjo1qkZ2cyBsNII=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/job-fair-498213851-5b300e588e1b6e00366f8179.jpg')` }}>
                         <div style={{ textAlign: 'right' }}>
-                            <Button variant="contained" startIcon={<AddIcon />} sx={{ marginLeft: 'auto',marginRight:20,marginTop:5 }}>
+                            <a href='/Events/Add'><Button variant="contained" startIcon={<AddIcon />} sx={{ marginLeft: 'auto',marginRight:20,marginTop:5 }}>
                                 Add Your Event
-                            </Button>
+                            </Button></a>
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
                             <h1 style={{ marginBottom: 20 }}>Events</h1>
