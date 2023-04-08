@@ -22,7 +22,7 @@ export default function AlignItemsList() {
 
             <Combinenav />
 
-            <div >
+            
 
 
                 <div>
@@ -131,8 +131,6 @@ export default function AlignItemsList() {
                     </List>
                 </div>
 
-
-            </div>
             <Maingooter />
             <Subfooter />
 
