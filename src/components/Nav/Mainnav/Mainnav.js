@@ -14,7 +14,7 @@ const Mainnav = () => {
   window.addEventListener("scroll", changeNavbarColor);
 
   const goContact = () => {
-    window.location = "/contact";
+    window.location = "/sessions";
   };
   return (
     <div
@@ -25,13 +25,15 @@ const Mainnav = () => {
       }
     >
       <div className="navlogo__title__section">
-          <h2 className="navlogo__title">endpoverty</h2>
+        <h2 className="navlogo__title">endpoverty</h2>
       </div>
       <div className="nav__ul__section">
         <li className="nav__li__section">home</li>
         <li className="nav__li__section">about us </li>
         <li className="nav__li__section">contact us</li>
-        <li className="nav__li__section">sessions</li>
+        <Link to="/sessions">
+          <li className="nav__li__section">sessions</li>
+        </Link>
         <li className="nav__li__section">jobs</li>
       </div>
       <div className="nav__credention__btn__section">
