@@ -28,7 +28,9 @@ const Mainnav = () => {
         <h2 className="navlogo__title">endpoverty</h2>
       </div>
       <div className="nav__ul__section">
-        <li className="nav__li__section">home</li>
+        <Link to="/">
+          <li className="nav__li__section">home</li>
+        </Link>
         <li className="nav__li__section">about us </li>
         <li className="nav__li__section">contact us</li>
         <Link to="/sessions">
