@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 import Maingooter from "./components/footer/Mainfooter/Maingooter";
 import Subfooter from "./components/footer/Subfooter/Subfooter";
 import Combinenav from "./components/Nav/Combinednav/Combinenav";
@@ -7,18 +7,20 @@ import Login from "./components/logger/Login/Login";
 import Signup from "./components/logger/Signup/Signup";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-import Events from "./components/Events/ViewEvents"
+import ViewSession from "./components/sessions/ViewSession/ViewSession";
+import SingleSession from "./components/sessions/SingleSession/SingleSession";
 
 function App() {
   return (
     <Router>
     <div className="App">
       <Routes>
-          <Route index element={<Home />} />
-          <Route path="/Events" element={<Events/>}/>
-          <Route path="/" element={<Layout />}/>     
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+        <Route index element={<Home />} />
+        <Route path="/" element={<Layout />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sessions" element={<ViewSession />} />
+        <Route path="/session" element={<SingleSession />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>
     </Router>
