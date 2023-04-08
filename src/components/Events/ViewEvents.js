@@ -53,7 +53,7 @@ export default function ViewEvents() {
                                                 Ali Connors
                                             </Typography>
                                             {" — I'll be in your neighborhood doing errands this…"}
-                                            <a href=''>See More...</a>
+                                            <a href='http://localhost:3000/Events/Update/'>See More...</a>
                                         </React.Fragment>
 
                                     }
@@ -77,7 +77,7 @@ export default function ViewEvents() {
                                                 to Scott, Alex, Jennifer
                                             </Typography>
                                             {" — Wish I could come, but I'm out of town this…"}
-                                            <a href=''>See More...</a>
+                                            <a href='http://localhost:3000/Events/Update/'>See More...</a>
                                         </React.Fragment>
                                     }
                                 />
@@ -99,7 +99,7 @@ export default function ViewEvents() {
                                                 to Scott, Alex, Jennifer
                                             </Typography>
                                             {" — Wish I could come, but I'm out of town this…"}
-                                            <a href=''>See More...</a>
+                                            <a href='http://localhost:3000/Events/Update/'>See More...</a>
                                         </React.Fragment>
                                     }
                                 />
@@ -122,7 +122,7 @@ export default function ViewEvents() {
                                                 Sandra Adams
                                             </Typography>
                                             {' — Do you have Paris recommendations? Have you ever…'}
-                                            <a href=''>See More...</a>
+                                            <a href='http://localhost:3000/Events/Update/'>See More...</a>
                                         </React.Fragment>
                                     }
                                 />

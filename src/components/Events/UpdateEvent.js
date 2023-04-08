@@ -1,37 +1,22 @@
 import * as React from 'react';
+import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
+import Combinenav from "../../components/Nav/Combinednav/Combinenav";
+import Maingooter from "../../components/footer/Mainfooter/Maingooter";
+import Subfooter from "../../components/footer/Subfooter/Subfooter";
 import TextField from '@mui/material/TextField';
 import dayjs from 'dayjs';
-import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import DeleteIcon from '@mui/icons-material/Cancel'
+import DeleteIcon from '@mui/icons-material/Delete'
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="http://localhost:3000/">
-                noPoverty.com
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
-const theme = createTheme();
-
-export default function AddEvent() {
+export default function ViewEvents() {
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -40,48 +25,48 @@ export default function AddEvent() {
             password: data.get('password'),
         });
     };
-
     return (
-        <ThemeProvider theme={theme}>
-            <Grid container component="main" sx={{ height: '100vh' }}>
-                <CssBaseline />
-                <Grid
-                    item
-                    xs={false}
-                    sm={4}
-                    md={7}
-                    sx={{
-                        backgroundImage: 'url(https://brazen-production.nyc3.digitaloceanspaces.com/brazen_uploads/virtual-career-fair-prep.png?mtime=20201020213448&focal=none)',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundColor: (t) =>
-                            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                />
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+
+
+        <div>
+
+            <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+            <Combinenav />
+
+            
+
+
+                <div style={{ width: '100%', opacity: 80, backgroundSize: 'cover',  backgroundImage: `url('https://www.medidata.com/wp-content/uploads/2021/09/shutterstock_379892197_LR-1024x529.jpg')` }}>
+
+                    
+                    <Grid item >
                     <Box
                         sx={{
-                            my: 8,
+                            
                             mx: 4,
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
+                            
                         }}
                     >
 
-                        <Typography component="h1" variant="h5">
-                            Add Your Event Details
+                        <Typography component="h1" variant="h5" sx={{marginTop:5}}>
+                            Event Details
                         </Typography>
-                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                        <div style={{backgroundColor:'white',margin:5, borderRadius:5,opacity:50}}>
+                        <Box component="form" sx={{ margin:5,opacity:100}}  noValidate onSubmit={handleSubmit} xs={12} sm={8} md={5} elevation={6} square>
+                            
                             <TextField
-                                margin="normal"
+                                margin="10"
                                 required
                                 fullWidth
                                 id="event"
                                 label="Event Name"
                                 name="event"
-                                autoComplete="event"
+                               
+                                defaultValue={'Event'}
                                 autoFocus
                             />
                             <TextField
@@ -90,19 +75,22 @@ export default function AddEvent() {
                                 fullWidth
                                 name="author"
                                 label="Author Name"
+                                defaultValue={'Author'}
                                 id="author"
                             />
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DemoContainer components={['DatePicker']}>
-                                    <DatePicker label="Event Date" required />
+                                    <DatePicker label="Event Date" required defaultValue={dayjs('2022-04-17')}/>
                                 </DemoContainer>
                             </LocalizationProvider>
                             <TextField
+                                
                                 margin="normal"
                                 required
                                 fullWidth
                                 name="venue"
                                 label="Venue"
+                                defaultValue={'Venue'}
                                 id="venue"
                             />
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -115,23 +103,32 @@ export default function AddEvent() {
                                 </DemoContainer>
                             </LocalizationProvider>
 
-                            <Button href="http://localhost:3000/Events/"
+                            <Button href="http://localhost:3000/Events/Update"
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                Add Event
+                                Update Event Details
                             </Button>
-                            <Button href="http://localhost:3000/Events/" startIcon={<DeleteIcon />} variant="outlined"  fullWidth  color="error" sx={{ mt: 3, mb: 2 }}>
-                                Cancel
+                            <Button href="http://localhost:3000/Events/" startIcon={<DeleteIcon />} variant="contained"  fullWidth  color="error" sx={{ mt: 3, mb: 2 }}>
+                                Delete
                             </Button>
+                            
 
-                            <Copyright />
+
                         </Box>
-                    </Box>
-                </Grid>
-            </Grid>
-        </ThemeProvider>
+                        </div>
+                        </Box>
+                        </Grid>
+                    
+                </div>
+
+            <Maingooter />
+            <Subfooter />
+
+
+
+        </div>
     );
 }
