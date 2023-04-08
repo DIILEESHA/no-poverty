@@ -1,8 +1,34 @@
 import React, { useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
+import { Link } from "react-router-dom";
+import swal from 'sweetalert';
+
 
 const  Details= () => {
+  function selfies()
+  {
+   
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swal(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+   
+  }
+ 
 
   return (
     
@@ -39,8 +65,8 @@ const  Details= () => {
          </tr>
       </table>
      
-      <button id="btnedit">Edit</button>
-      <button id="btndelete">Delete</button>
+     <Link to="/edit"> <button id="btnedit">Edit</button></Link>
+     <Link to="/view">  <button onClick={selfies} id="btndelete">Delete</button></Link>
      </form>
  </div>
  

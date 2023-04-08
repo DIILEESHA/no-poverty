@@ -1,8 +1,19 @@
 import React, { useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
+import{Link} from "react-router-dom";
+import swal from 'sweetalert';
 
 const  Edit= () => {
+  function selfie()
+ {
+  swal({
+    title: "Updated!",
+    text: "You clicked the button!",
+    icon: "success",
+    button: "OK",
+  })
+ }
 
   return (
     
@@ -39,7 +50,7 @@ const  Edit= () => {
          </tr>
       </table>
      
-      <button id="btnedit2">Update</button>
+      <Link to="/view"><button onClick={selfie} id="btnedit2">Update</button></Link>
 
       
       

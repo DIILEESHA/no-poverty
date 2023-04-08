@@ -7,8 +7,8 @@ const New = () => {
 
   return (
     
-  <div>
-   <body id="body1">
+  <div id="body1">
+   
   <form>
   <h1>Add Product</h1>
   <div class="form-group">
@@ -28,13 +28,13 @@ const New = () => {
   </div>
   <div class="custom-file">
     <input type="file" class="custom-file-input" id="validatedCustomFile" required />
-    <p>Upload Product Image</p>
+    <p id="pnew">Upload Product Image</p>
   </div>
  <div>
-   <input type="submit"  id="btn1"/>
+ <Link to="view"> <input type="submit"  id="btn1"/></Link>
   </div>
  </form>
- </body>
+ 
  </div>
  
  

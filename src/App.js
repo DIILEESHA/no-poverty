@@ -7,7 +7,7 @@ import View from './components/sehan/new1/view';
 import Details from './components/sehan/new1/details';
 import Edit from './components/sehan/new1/edit';
 import Home from "./pages/Home/Home";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes,Route } from 'react-router-dom';
 function App() {
   return ( 
     <div className="App">
@@ -15,15 +15,27 @@ function App() {
       <Home />
       <Maingooter />
        <Subfooter /> 
-       
-      */}
-
-        <New/>
+       <New/>
         <View/>
         <Details/>
       <Edit/>
       
+      */}
+
+    <Combinenav />
+     <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<New />} />
+        <Route path="view" element={<View />} /> 
+        <Route path="details" element={<Details />} />
+        <Route path="edit" element={<Edit />} />
+      </Routes>
      
+     
+     </BrowserRouter>
+     
+     <Maingooter />  
+     <Subfooter /> 
     </div>
   );
 }
