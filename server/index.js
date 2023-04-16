@@ -6,11 +6,13 @@ const app = express();
 var bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(10);
 const jwt = require("jsonwebtoken");
+const cookieparser = require("cookie-parser");
 
 const sec = "kjktjtjtjt";
 //middleware
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(express.json());
+app.use(cookieparser());
 
 //mongoose connection
 mongoose.connect(
@@ -54,11 +56,16 @@ app.post("/login", async (req, res) => {
     jwt.sign({ username, id: userImp._id }, sec, {}, (err, token) => {
       if (err) throw err;
 
-      res.json(token);
+      res.cookie("token", token).json("ok");
     });
   } else {
     res.status(400).json("wrong credentials");
   }
+});
+
+//get profile with checked logged
+app.get("/profile", (req, res) => {
+  res.json(req.cookies);
 });
 
 //app listen port

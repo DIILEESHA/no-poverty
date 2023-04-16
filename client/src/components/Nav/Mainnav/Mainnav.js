@@ -29,14 +29,46 @@ const Mainnav = () => {
       </div>
       <div className="nav__ul__section">
         <Link to="/">
-          <li className="nav__li__section">home</li>
+          <li
+            className={
+              colorChange ? "nav__li__section colorChange" : "nav__li__section"
+            }
+          >
+            home
+          </li>
         </Link>
-        <li className="nav__li__section">about us </li>
-        <li className="nav__li__section">contact us</li>
+        <Link to="/about-us">
+          <li
+            className={
+              colorChange ? "nav__li__section colorChange" : "nav__li__section"
+            }
+          >
+            about us
+          </li>
+        </Link>
+        <li
+          className={
+            colorChange ? "nav__li__section colorChange" : "nav__li__section"
+          }
+        >
+          contact us
+        </li>
         <Link to="/sessions">
-          <li className="nav__li__section">sessions</li>
+          <li
+            className={
+              colorChange ? "nav__li__section colorChange" : "nav__li__section"
+            }
+          >
+            sessions
+          </li>
         </Link>
-        <li className="nav__li__section">jobs</li>
+        <li
+          className={
+            colorChange ? "nav__li__section colorChange" : "nav__li__section"
+          }
+        >
+          jobs
+        </li>
       </div>
       <div className="nav__credention__btn__section">
         <Link to="/login">

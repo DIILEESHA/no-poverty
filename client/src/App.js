@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import ViewSession from "./components/sessions/ViewSession/ViewSession";
 import SingleSession from "./components/sessions/SingleSession/SingleSession";
+import About from "./pages/Aboutus/About";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/" element={<Layout />} />
+          <Route path="/about-us" element={<About />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/sessions" element={<ViewSession />} />
           <Route path="/session" element={<SingleSession />} />

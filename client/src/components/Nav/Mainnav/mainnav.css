@@ -61,3 +61,6 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   font-weight: 600;
 }
+.nav__li__section.colorChange{
+  color: #343;
+}
