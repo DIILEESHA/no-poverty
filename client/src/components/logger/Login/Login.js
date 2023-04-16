@@ -1,31 +1,62 @@
-import React from "react";
+import { useState } from "react";
 import "./login.css";
 import logo from "../../../assets/log.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  async function login(ev) {
+    ev.preventDefault();
+    const response = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    });
+    if (response.ok) {
+      // response.json().then((userInfo) => {
+      // setUserInfo(userInfo);
+      setRedirect(true);
+      // }
+    } else {
+      alert("wrong credentials");
+    }
+  }
+
+  if (redirect) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <div className="login__container">
       <div className="login__left">
         <div className="login__left__container">
           <h1 className="login__title">login</h1>
-          <div className="log__conditions">
-            <label className="login__label">Email</label>
-            <input
-              type="email"
-              placeholder="Example@gmail.com"
-              className="login__input__combiner"
-            />
-          </div>
-          <div className="log__conditions">
-            <label className="login__label">Password</label>
-            <input
-              type="password"
-              placeholder="*****"
-              className="login__input__combiner"
-            />
-          </div>
-          <button className="log__btn">login</button>
+          <form action="" onSubmit={login}>
+            <div className="log__conditions">
+              <label className="login__label">username</label>
+              <input
+                type="input"
+                placeholder="Jhon smith"
+                className="login__input__combiner"
+                value={username}
+                onChange={(ev) => setUsername(ev.target.value)}
+              />
+            </div>
+            <div className="log__conditions">
+              <label className="login__label">Password</label>
+              <input
+                type="password"
+                placeholder="*****"
+                className="login__input__combiner"
+                value={password}
+                onChange={(ev) => setPassword(ev.target.value)}
+              />
+            </div>
+            <button className="log__btn">login</button>
+          </form>
           <span className="log__span">
             Have not an Account?
             <Link to="/signup">
