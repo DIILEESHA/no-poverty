@@ -7,9 +7,10 @@
 }
 a{
   text-decoration: none;
-  color: #99912c;
+  /* color: #99912c; */
+color: #fff;
 }
 Link{
-  color: #99912c;
+  /* color: #99912c; */
 
 }
