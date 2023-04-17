@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+a{
+  text-decoration: none;
+  color: #99912c;
+}
+Link{
+  color: #99912c;
+
+}
