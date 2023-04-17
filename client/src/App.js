@@ -24,7 +24,6 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/" element={<Layout />} />
           <Route path="/about-us" element={<About />} />
-
           <Route path="/login" element={<Login />} />
           <Route path="/create-session" element={<Addsession />} />
           <Route path="/sessions" element={<ViewSession />} />
