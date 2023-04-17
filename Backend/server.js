@@ -2,30 +2,22 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const dotenv = require("dotenv");
 const app = express();
-require("dotenv").config();
-
-
-const PORT = process.env.PORT || 8070;
+const dotenv = require("dotenv");
+dotenv.config();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-const URL = process.env.MONGODB_URL;
-
-mongoose.connect(URL, {
-    useCreateIndex: true,
+//mongoose connection
+mongoose
+  .connect(process.env.mongoDBURI, {
+    useUnifiedTopology: true,
     useNewUrlParser: true,
-    useUnifiedTopologyL: true,
-    useFindAndModify:false
+  })
+  .then(() => console.log("mongoDB Successfully Connected"))
+  .catch((error) => console.log(error));
+
+app.listen(8070, () => {
+  console.log("server running on PORT 8070");
 });
-
- const connection = mongoose.connection;
- connection.once("open", () => {
-    console.log("Mongodb Connection success!");
- })
-
- app.listen(PORT, () => {
-    console.log(`Server is up and running on port ${PORT}`)
- })
