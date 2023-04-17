@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 import Maingooter from "./components/footer/Mainfooter/Maingooter";
 import Subfooter from "./components/footer/Subfooter/Subfooter";
 import Combinenav from "./components/Nav/Combinednav/Combinenav";
@@ -19,10 +19,6 @@ import New from "./components/sehan/New";
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
-        
-      </Routes> */}
-
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />

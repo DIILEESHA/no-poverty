@@ -5,11 +5,12 @@
 ::-webkit-scrollbar {
   width: 5px;
 }
-a{
+a {
   text-decoration: none;
-  color: #99912c;
+  /* color: #99912c;
+   */
+  color: #fff;
 }
-Link{
+Link {
   color: #99912c;
-
 }
