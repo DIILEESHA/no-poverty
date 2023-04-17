@@ -12,7 +12,7 @@ const Login = () => {
   async function register(ev) {
     ev.preventDefault();
 
-    const response = await fetch("http://localhost:5000/signup", {
+    const response = await fetch("http://localhost:5000/auth/sign/signup", {
       method: "POST",
       body: JSON.stringify({ username, email, password }),
       headers: { "Content-Type": "application/json" },

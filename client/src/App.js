@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import ViewSession from "./components/sessions/ViewSession/ViewSession";
 import SingleSession from "./components/sessions/SingleSession/SingleSession";
+import Addsession from "./components/sessions/AddSession/Addsession";
 import About from "./pages/Aboutus/About";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/about-us" element={<About />} />
 
           <Route path="/login" element={<Login />} />
+          <Route path="/create-session" element={<Addsession />} />
           <Route path="/sessions" element={<ViewSession />} />
           <Route path="/session" element={<SingleSession />} />
           <Route path="/signup" element={<Signup />} />

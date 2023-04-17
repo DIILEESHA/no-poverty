@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./login.css";
 import logo from "../../../assets/log.png";
 import { Link, Navigate } from "react-router-dom";
+import Alert from "../../alert/Alert";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -10,7 +11,7 @@ const Login = () => {
 
   async function login(ev) {
     ev.preventDefault();
-    const response = await fetch("http://localhost:5000/login", {
+    const response = await fetch("http://localhost:5000/auth/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
@@ -22,7 +23,7 @@ const Login = () => {
       setRedirect(true);
       // }
     } else {
-      alert("wrong credentials");
+      Alert("fail", "OOPS! Try again");
     }
   }
 
