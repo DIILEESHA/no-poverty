@@ -23,6 +23,9 @@ app.use("/auth", require("./routes/Login"));
 app.use("/auth/sign", require("./routes/Login"));
 app.use("/auth/profile", require("./routes/Login"));
 app.use("/auth/log", require("./routes/Login"));
+// const router = require("./routes/postJob_route");
+app.use("/postjob", require("./routes/postJob_route"))
+
 
 //app listen port
 app.listen(5000, () => {
