@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./mainnav.css";
 import { Link } from "react-router-dom";
 import { GrAddCircle } from "react-icons/gr";
+import { FaDonate } from "react-icons/fa";
 
 const Mainnav = () => {
   const [username, setUsername] = useState(null);
@@ -91,6 +92,11 @@ const Mainnav = () => {
       </div>
 
       <div className="nav__credention__btn__section">
+        <Link to="/donate">
+          <button className="nav__btn">
+            <FaDonate />
+          </button>
+        </Link>
         {username && (
           <>
             <Link to="/create-session">

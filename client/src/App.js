@@ -14,7 +14,10 @@ import About from "./pages/Aboutus/About";
 import View from "./components/sehan/View";
 import Edit from "./components/sehan/Edit";
 import Details from "./components/sehan/Details";
+import "@stripe/stripe-js";
 import New from "./components/sehan/New";
+import Donate from "./components/donate/Donate";
+import Sponsor from "./components/sponsor/Sponsor";
 
 function App() {
   return (
@@ -33,6 +36,8 @@ function App() {
           <Route path="/details" element={<Details />} />
           <Route path="/edit" element={<Edit />} />
           <Route path="/new" element={<New />} />
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/sponsor-a-child" element={<Sponsor />} />
         </Routes>
       </BrowserRouter>
     </div>
