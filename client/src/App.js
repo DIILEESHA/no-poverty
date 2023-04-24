@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 import Maingooter from "./components/footer/Mainfooter/Maingooter";
 import Subfooter from "./components/footer/Subfooter/Subfooter";
 import Combinenav from "./components/Nav/Combinednav/Combinenav";
