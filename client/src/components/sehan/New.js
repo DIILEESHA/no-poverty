@@ -120,7 +120,7 @@ export default function New() {
               <Link to="/view">
                 {" "}
                 <input type="submit" onClick={sendData} id="btn1" />
-                add
+                
               </Link>
             </div>
           </form>

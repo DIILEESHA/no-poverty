@@ -34,8 +34,8 @@ function App() {
           <Route path="/session" element={<SingleSession />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/view" element={<View />} />
-          <Route path="/details" element={<Details />} />
-          <Route path="/edit" element={<Edit />} />
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="/edit/:id" element={<Edit />} />
           <Route path="/new" element={<New />} />
           
           <Route path="/donate" element={<Donate />} />
