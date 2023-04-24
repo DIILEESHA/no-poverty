@@ -1,7 +1,7 @@
 const router= require("express").Router();
 const {response}=require("express");
-const {create}=require("../../models/events");
-let events = require("../../models/events");
+const {create}=require("../models/Event");
+let events = require("../models/Event");
 
 router.route("/add").post((req,res) =>{
     

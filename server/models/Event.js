@@ -20,12 +20,10 @@ const eventSchema = new Schema({
      
     },
     time:{
-        type:Date
+        type:String
     }
     
 
-},{
-    timestamps:true,
 }
 );
 const events = mongoose.model("event",eventSchema);
