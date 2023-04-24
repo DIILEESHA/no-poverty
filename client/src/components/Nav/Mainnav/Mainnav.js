@@ -36,6 +36,9 @@ const Mainnav = () => {
         <Link to="/sessions">
           <li className="nav__li__section">sessions</li>
         </Link>
+        <Link to="/Events">
+          <li className="nav__li__section">Events</li>
+        </Link>
         <li className="nav__li__section">jobs</li>
       </div>
       <div className="nav__credention__btn__section">
