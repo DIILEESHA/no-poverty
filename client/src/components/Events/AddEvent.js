@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -15,6 +15,8 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 function Copyright(props) {
     return (
@@ -32,14 +34,57 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function AddEvent() {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+
+    const [eventName,setEventName]=useState("");
+    const [authorName,setAuthorName]=useState("");
+    const [eventDate,setEventDate]=useState("");
+    const [venue,setVenue]=useState("");
+    const [time,setTime]=useState("");
+  
+
+   const sendData=async(e)=>{
+        e.preventDefault();
+        
+        let newEvent ={
+
+            eventName:eventName,
+            authorName:authorName,
+            eventDate:eventDate,
+            venue:venue,
+            time:time,
+
+
+        }
+        
+        axios.post("http://localhost:5000/events/add",newEvent).then(()=>{
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Event added to Inventory',
+                icon: 'success',
+                showConfirmButton:false,
+              });
+            
+        }).catch((err)=>{
+
+            Swal.fire({
+                title: "Error!",
+                text: "Couldn't Update your Details",
+                type: "error",
+              });
+        })
+
+
+        setTimeout(()=>{
+            window.location.replace("http://localhost:3000/Events");
+          },1500)
+
+    }
+
+
+
+
+
 
     return (
         <ThemeProvider theme={theme}>
@@ -73,7 +118,7 @@ export default function AddEvent() {
                         <Typography component="h1" variant="h5">
                             Add Your Event Details
                         </Typography>
-                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                        <Box component="form" noValidate  sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
                                 required
@@ -83,6 +128,9 @@ export default function AddEvent() {
                                 name="event"
                                 autoComplete="event"
                                 autoFocus
+                                onChange={(e)=>{
+                                    setEventName(e.target.value);
+                                }}
                             />
                             <TextField
                                 margin="normal"
@@ -91,10 +139,15 @@ export default function AddEvent() {
                                 name="author"
                                 label="Author Name"
                                 id="author"
+                                onChange={(e)=>{
+                                    setAuthorName(e.target.value);
+                                }}
                             />
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DemoContainer components={['DatePicker']}>
-                                    <DatePicker label="Event Date" required />
+                                    <DatePicker label="Event Date" required onChange={(e)=>{
+                                    setEventDate(e.target.value);
+                                }} />
                                 </DemoContainer>
                             </LocalizationProvider>
                             <TextField
@@ -104,26 +157,32 @@ export default function AddEvent() {
                                 name="venue"
                                 label="Venue"
                                 id="venue"
+                                onChange={(e)=>{
+                                    setVenue(e.target.value);
+                                }}
                             />
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DemoContainer components={[
                                     'TimePicker'
                                 ]}>
                                     <DemoItem label="Time" required>
-                                        <TimePicker defaultValue={dayjs('2022-04-17T15:30')} />
+                                        <TimePicker onChange={(e)=>{
+                                    setTime(e.target.value);
+                                }} defaultValue={dayjs('2022-04-17T15:30')} />
                                     </DemoItem>
                                 </DemoContainer>
                             </LocalizationProvider>
 
-                            <Button href="http://localhost:3000/Events/"
+                            <Button href="http://localhost:3000/Events"
                                 type="submit"
+                                onClick={sendData}
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
                                 Add Event
                             </Button>
-                            <Button href="http://localhost:3000/Events/" startIcon={<DeleteIcon />} variant="outlined"  fullWidth  color="error" sx={{ mt: 3, mb: 2 }}>
+                            <Button href="http://localhost:3000/Events" startIcon={<DeleteIcon />} variant="outlined"  fullWidth  color="error" sx={{ mt: 3, mb: 2 }}>
                                 Cancel
                             </Button>
 

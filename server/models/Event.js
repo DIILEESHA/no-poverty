@@ -12,7 +12,7 @@ const eventSchema = new Schema({
     },
     eventDate:{
         type: Date,
-         required:true
+         
     },
     venue:{
         type:String,
