@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 import Maingooter from "./components/footer/Mainfooter/Maingooter";
 import Subfooter from "./components/footer/Subfooter/Subfooter";
 import Combinenav from "./components/Nav/Combinednav/Combinenav";
@@ -11,6 +11,11 @@ import ViewSession from "./components/sessions/ViewSession/ViewSession";
 import SingleSession from "./components/sessions/SingleSession/SingleSession";
 import Addsession from "./components/sessions/AddSession/Addsession";
 import About from "./pages/Aboutus/About";
+
+import View from "./components/sehan/View";
+import Edit from "./components/sehan/Edit";
+import Details from "./components/sehan/Details";
+import New from "./components/sehan/New";
 
 function App() {
   return (
@@ -29,6 +34,11 @@ function App() {
           <Route path="/sessions" element={<ViewSession />} />
           <Route path="/session" element={<SingleSession />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/view" element={<View />} />
+          <Route path="/details" element={<Details />} />
+          <Route path="/edit" element={<Edit />} />
+          <Route path="/new" element={<New />} />
+          
         </Routes>
       </BrowserRouter>
     </div>
