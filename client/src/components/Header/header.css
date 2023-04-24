@@ -9,7 +9,7 @@
 .header__container {
   height: 100vh;
   width: 100%;
-  background-image: url("../../assets/homer.avif");
+  background-image: url("../../assets/homer.png");
   position: relative;
   background-repeat: no-repeat;
   background-position: 50% 50%;

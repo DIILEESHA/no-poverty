@@ -33,8 +33,19 @@
   display: flex;
   gap: 10px;
 }
+.dfg{
+  /* background: #fcc001; */
+  /* backdrop-filter: blur(2px); */
+font-size: 15px;
+display: flex;align-items: center;justify-content: center;
+/* width: 25px; */
+border-radius: 50%;
+/* height: 25px; */
+}
 .nav__btn {
   background: #fcc001;
+  gap: 5px;
+  display: flex;align-items: center;justify-content: center;
   backdrop-filter: blur(2px);
   padding: 7px 15px;
   border: 1px solid transparent;
@@ -60,4 +71,7 @@
   color: #343;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   font-weight: 600;
+}
+.nav__li__section.colorChange{
+  color: #343;
 }
