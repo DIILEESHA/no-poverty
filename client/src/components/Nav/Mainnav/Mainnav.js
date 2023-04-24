@@ -89,6 +89,15 @@ const Mainnav = () => {
         >
           jobs
         </li>
+        <Link to ='/Events'>
+          <li
+            className={
+              colorChange ? "nav__li__section colorChange" : "nav__li__section"
+            }
+          >
+            events
+          </li>
+        </Link>
       </div>
 
       <div className="nav__credention__btn__section">
