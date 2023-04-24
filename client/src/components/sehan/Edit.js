@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 import{Link} from "react-router-dom";
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 
 const  Edit= () => {
   function selfie()
  {
-  swal({
+  swal.fire({
     title: "Updated!",
     text: "You clicked the button!",
     icon: "success",

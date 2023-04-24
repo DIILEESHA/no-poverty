@@ -11,6 +11,10 @@ import ViewSession from "./components/sessions/ViewSession/ViewSession";
 import SingleSession from "./components/sessions/SingleSession/SingleSession";
 import Addsession from "./components/sessions/AddSession/Addsession";
 import About from "./pages/Aboutus/About";
+import "@stripe/stripe-js";
+import Donate from "./components/donate/Donate";
+import Sponsor from "./components/sponsor/Sponsor";
+
 import View from "./components/sehan/View";
 import Edit from "./components/sehan/Edit";
 import Details from "./components/sehan/Details";
@@ -19,10 +23,6 @@ import New from "./components/sehan/New";
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
-        
-      </Routes> */}
-
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
@@ -37,6 +37,9 @@ function App() {
           <Route path="/details" element={<Details />} />
           <Route path="/edit" element={<Edit />} />
           <Route path="/new" element={<New />} />
+          
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/sponsor-a-child" element={<Sponsor />} />
         </Routes>
       </BrowserRouter>
     </div>
