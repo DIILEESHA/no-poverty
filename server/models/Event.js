@@ -20,7 +20,10 @@ const eventSchema = new Schema({
      
     },
     time:{
-        type:String
+        type:Date,
+    },
+    description:{
+        type:String,
     }
     
 

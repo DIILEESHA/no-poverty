@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -32,52 +32,57 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
+const tomorrow = dayjs().add(1, 'day');
+const today = dayjs();
+const todayStartOfTheDay = today.startOf('day');
 
 export default function AddEvent() {
 
-    const [eventName,setEventName]=useState("");
-    const [authorName,setAuthorName]=useState("");
-    const [eventDate,setEventDate]=useState("");
-    const [venue,setVenue]=useState("");
-    const [time,setTime]=useState("");
-  
+    const [eventName, setEventName] = useState("");
+    const [authorName, setAuthorName] = useState("");
+    const [eventDate, setEventDate] = useState("");
+    const [venue, setVenue] = useState("");
+    const [time, setTime] = useState("");
+    const [description, setDescription] = useState("");
 
-   const sendData=async(e)=>{
+
+    const sendData = async (e) => {
         e.preventDefault();
-        
-        let newEvent ={
 
-            eventName:eventName,
-            authorName:authorName,
-            eventDate:eventDate,
-            venue:venue,
-            time:time,
+        let newEvent = {
+
+            eventName: eventName,
+            authorName: authorName,
+            eventDate: eventDate,
+            venue: venue,
+            time: time,
+            description:description,
 
 
         }
-        
-        axios.post("http://localhost:5000/events/add",newEvent).then(()=>{
+
+        axios.post("http://localhost:5000/events/add", newEvent).then(() => {
 
             Swal.fire({
                 title: 'Success!',
                 text: 'Event added to Inventory',
                 icon: 'success',
-                showConfirmButton:false,
-              });
-            
-        }).catch((err)=>{
+                showConfirmButton: false,
+            });
+
+        }).catch((err) => {
 
             Swal.fire({
                 title: "Error!",
                 text: "Couldn't Update your Details",
                 type: "error",
-              });
+            });
         })
 
 
-        setTimeout(()=>{
+        setTimeout(() => {
             window.location.replace("http://localhost:3000/Events");
-          },1500)
+        }, 1500)
 
     }
 
@@ -118,7 +123,7 @@ export default function AddEvent() {
                         <Typography component="h1" variant="h5">
                             Add Your Event Details
                         </Typography>
-                        <Box component="form" noValidate  sx={{ mt: 1 }}>
+                        <Box component="form" noValidate onSubmit={sendData} sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
                                 required
@@ -128,7 +133,7 @@ export default function AddEvent() {
                                 name="event"
                                 autoComplete="event"
                                 autoFocus
-                                onChange={(e)=>{
+                                onChange={(e) => {
                                     setEventName(e.target.value);
                                 }}
                             />
@@ -139,17 +144,22 @@ export default function AddEvent() {
                                 name="author"
                                 label="Author Name"
                                 id="author"
-                                onChange={(e)=>{
+                                onChange={(e) => {
                                     setAuthorName(e.target.value);
                                 }}
                             />
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DemoContainer components={['DatePicker']}>
-                                    <DatePicker label="Event Date" required onChange={(e)=>{
-                                    setEventDate(e.target.value);
-                                }} />
+                                    <DatePicker label="Event Date" required disablePast defaultValue={tomorrow} onChange={(e) => {
+                                        setEventDate(e);
+                                    }} />
+                                    <TimePicker label="Time" onChange={(e) => {
+                                        setTime(e);
+                                    }}  defaultValue={todayStartOfTheDay}/>
                                 </DemoContainer>
+                                
                             </LocalizationProvider>
+
                             <TextField
                                 margin="normal"
                                 required
@@ -157,32 +167,34 @@ export default function AddEvent() {
                                 name="venue"
                                 label="Venue"
                                 id="venue"
-                                onChange={(e)=>{
+                                onChange={(e) => {
                                     setVenue(e.target.value);
                                 }}
                             />
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={[
-                                    'TimePicker'
-                                ]}>
-                                    <DemoItem label="Time" required>
-                                        <TimePicker onChange={(e)=>{
-                                    setTime(e.target.value);
-                                }} defaultValue={dayjs('2022-04-17T15:30')} />
-                                    </DemoItem>
-                                </DemoContainer>
-                            </LocalizationProvider>
+                                <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="description"
+                                label="Description"
+                                id="description"
+                                multiline
+                                rows={3}
+                                onChange={(e) => {
+                                    setDescription(e.target.value);
+                                }}
+                            />
 
                             <Button href="http://localhost:3000/Events"
                                 type="submit"
                                 onClick={sendData}
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                sx={{ mt: 1, mb: 0 }}
                             >
                                 Add Event
                             </Button>
-                            <Button href="http://localhost:3000/Events" startIcon={<DeleteIcon />} variant="outlined"  fullWidth  color="error" sx={{ mt: 3, mb: 2 }}>
+                            <Button href="http://localhost:3000/Events" startIcon={<DeleteIcon />} variant="outlined" fullWidth color="error" sx={{ mt: 1, mb: 1 }}>
                                 Cancel
                             </Button>
 

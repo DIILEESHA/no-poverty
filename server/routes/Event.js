@@ -5,14 +5,15 @@ let events = require("../models/Event");
 
 router.route("/add").post((req,res) =>{
     
-    const {eventName,authorName,eventDate,venue,time}=req.body;
+    const {eventName,authorName,eventDate,venue,time,description}=req.body;
 
 const newEvent = new events({
     eventName,
     authorName,
     eventDate,
     venue,
-    time
+    time,
+    description
 })
 newEvent.save().then(()=>{
     res.json("Event Added")   
@@ -34,14 +35,15 @@ router.route("/").get((req,res)=>{
 
 router.route("/update/:id").put(async(req,res)=>{
     let eventId = req.params.id;
-    const {eventName,authorName,eventDate,venue,time}=req.body;
+    const {eventName,authorName,eventDate,venue,time,description}=req.body;
 
     const updateEvent ={
         eventName,
         authorName,
         eventDate,
         venue,
-        time
+        time,
+        description
     }
     const update = await events.findByIdAndUpdate(eventId,updateEvent).then(()=>{
 
