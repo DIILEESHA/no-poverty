@@ -65,7 +65,7 @@ export default function AddEvent() {
 
             Swal.fire({
                 title: 'Success!',
-                text: 'Event added to Inventory',
+                text: 'Your Event is Added',
                 icon: 'success',
                 showConfirmButton: false,
             });

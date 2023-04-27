@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React,{useState,useEffect} from 'react';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Combinenav from "../../components/Nav/Combinednav/Combinenav";
@@ -14,17 +14,115 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+import { useParams } from "react-router-dom";
 
-export default function ViewEvents() {
+export default function UpdateEvents() {
+
+    const [eventName, setEventName] = useState("");
+    const [authorName, setAuthorName] = useState("");
+    const [eventDate, setEventDate] = useState("");
+    const [venue, setVenue] = useState("");
+    const [time, setTime] = useState("");
+    const [description, setDescription] = useState("");
     
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
+    const { id } = useParams();
+
+
+    useEffect(() => {
+      function getEvent() {
+        axios.get(`http://localhost:5000/events/get/${id}`).then((res) => {
+  
+          if (res.data.status) {
+            setEventName(res.data.event.eventName);
+            setAuthorName(res.data.event.authorName);
+            setEventDate(res.data.event.eventDate);
+            setVenue(res.data.event.venue);
+            setTime(res.data.event.time);
+            setDescription(res.data.event.description);
+          }
+        }).catch((err)=>{
+  
+          alert(err);
         });
-    };
+      }
+  
+      getEvent();
+    },[]);
+  
+    function update(e) {
+  
+      e.preventDefault();
+  
+      const data = {
+        eventName,
+        authorName,
+        eventDate,
+        venue,
+        time,
+        description
+      };
+  
+      axios.put(`http://localhost:5000/events/update/${id}`, data).then(() => {
+  
+        Swal.fire({
+  
+          title: "Success!",
+          text: "Updated Successfully",
+          icon: "success",
+          showConfirmButton: false,
+        });
+  
+  
+  
+      }).catch((err) => {
+  
+        Swal.fire({
+          title: "Error!",
+          text: "Couldn't Update your Details",
+          type: "error",
+        });
+      });
+  
+      setTimeout(() => {
+        window.location.replace("http://localhost:3000/Events/");
+      }, 2500)
+    }
+
+    function deleteEvent(id){
+        Swal.fire({
+          title: 'Are You Sure?',
+          text: 'Once deleted, You Will Not Able To Recover These Details ! ',
+          icon: 'warning',
+          dangerMode: true,
+          showCancelButton:true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+        }).then((result)=>{
+          if(result.isConfirmed)
+          {axios.delete("http://localhost:5000/events/delete/"+id);
+          Swal.fire({
+            title: 'Success!',
+            text: 'Deleted Record Successfully',
+            icon: 'success',
+            showConfirmButton:false,
+          });
+          setTimeout(() => {
+            window.location.replace("http://localhost:3000/Events/");
+            
+          },1500);
+        
+        }
+        }).catch((err)=>{
+          Swal.fire({
+            title : 'Error!',
+            text : "Couldn't delete your Details",
+            type : 'error',
+          });
+        });
+  
+      }
     return (
 
 
@@ -56,54 +154,74 @@ export default function ViewEvents() {
                             Event Details
                         </Typography>
                         <div style={{backgroundColor:'white',margin:5, borderRadius:5,opacity:50}}>
-                        <Box component="form" sx={{ margin:5,opacity:100}}  noValidate onSubmit={handleSubmit} xs={12} sm={8} md={5} elevation={6} square>
+                        <Box component="form" sx={{ margin:5,opacity:100}}  noValidate onSubmit={update} xs={12} sm={8} md={5} elevation={6} square>
                             
-                            <TextField
-                                margin="10"
+                        <TextField
+                                margin="normal"
                                 required
                                 fullWidth
                                 id="event"
                                 label="Event Name"
                                 name="event"
-                               
-                                defaultValue={'Event'}
+                                value={eventName}
+                                autoComplete="event"
                                 autoFocus
+                                onChange={(e) => {
+                                    setEventName(e.target.value);
+                                }}
                             />
                             <TextField
                                 margin="normal"
                                 required
                                 fullWidth
                                 name="author"
+                                value={authorName}
                                 label="Author Name"
-                                defaultValue={'Author'}
                                 id="author"
+                                onChange={(e) => {
+                                    setAuthorName(e.target.value);
+                                }}
                             />
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DemoContainer components={['DatePicker']}>
-                                    <DatePicker label="Event Date" required defaultValue={dayjs('2022-04-17')}/>
+                                    <DatePicker label="Event Date" required disablePast value={dayjs(eventDate)} onChange={(e) => {
+                                        setEventDate(e);
+                                    }} />
+                                    <TimePicker label="Time" onChange={(e) => {
+                                        setTime(e);
+                                    }}  value={dayjs(time)}/>
                                 </DemoContainer>
-                            </LocalizationProvider>
-                            <TextField
                                 
+                            </LocalizationProvider>
+
+                            <TextField
                                 margin="normal"
                                 required
                                 fullWidth
+                                value={venue}
                                 name="venue"
                                 label="Venue"
-                                defaultValue={'Venue'}
                                 id="venue"
+                                onChange={(e) => {
+                                    setVenue(e.target.value);
+                                }}
                             />
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={[
-                                    'TimePicker'
-                                ]}>
-                                    <DemoItem label="Time" required>
-                                        <TimePicker defaultValue={dayjs('2022-04-17T15:30')} />
-                                    </DemoItem>
-                                </DemoContainer>
-                            </LocalizationProvider>
+                                <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                value={description}
+                                name="description"
+                                label="Description"
+                                id="description"
+                                multiline
+                                rows={3}
+                                onChange={(e) => {
+                                    setDescription(e.target.value);
+                                }}
+                            />
 
-                            <Button href="http://localhost:3000/Events/Update"
+                            <Button 
                                 type="submit"
                                 fullWidth
                                 variant="contained"
@@ -111,7 +229,7 @@ export default function ViewEvents() {
                             >
                                 Update Event Details
                             </Button>
-                            <Button href="http://localhost:3000/Events/" startIcon={<DeleteIcon />} variant="contained"  fullWidth  color="error" sx={{ mt: 3, mb: 2 }}>
+                            <Button onClick={()=>deleteEvent(id)}   startIcon={<DeleteIcon />} variant="contained"  fullWidth  color="error" sx={{ mt: 3, mb: 2 }}>
                                 Delete
                             </Button>
                             

@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/Events" element={<Events />} />
           <Route path="/Events/Add" element={<AddEvent />} />
-          <Route path="/Events/Update" element={<UpdateEvent />} />
+          <Route path="/Events/Update/:id" element={<UpdateEvent />} />
           <Route path="/" element={<Layout />} />
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
