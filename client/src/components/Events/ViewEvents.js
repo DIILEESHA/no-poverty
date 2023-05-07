@@ -19,6 +19,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateField } from '@mui/x-date-pickers/DateField';
 
+
+const imgUrl="https://img.freepik.com/free-vector/farmers-market-concept-illustration_114360-8886.jpg?w=2000";
 export default function ViewEvents() {
 
 
@@ -37,12 +39,6 @@ export default function ViewEvents() {
 
     }, [])
 
-
-
-
-
-
-
     return (
 
 
@@ -51,10 +47,6 @@ export default function ViewEvents() {
             <meta name="viewport" content="initial-scale=1, width=device-width" />
 
             <Combinenav />
-
-
-
-
             <div style={{ width: '100%', opacity: '70%', backgroundSize: 'cover', minHeight: '100vh', backgroundImage: `url('https://www.thebalancemoney.com/thmb/j65dIWXtJFEPmjo1qkZ2cyBsNII=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/job-fair-498213851-5b300e588e1b6e00366f8179.jpg')` }}>
 
                     <div style={{ textAlign: 'right' }}>
@@ -74,10 +66,9 @@ export default function ViewEvents() {
                                             <CardMedia
                                                 component="img"
                                                 height="140"
-                                                image="https://img.freepik.com/free-vector/farmers-market-concept-illustration_114360-8886.jpg?w=2000"
-
+                                                image={imgUrl}
                                             />
-                                            <CardContent>
+                                           <CardContent>
                                                 <Typography gutterBottom variant="h5" component="div">
                                                     {val.eventName}
                                                 </Typography>
