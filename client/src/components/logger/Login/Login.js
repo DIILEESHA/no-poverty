@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./login.css";
 import logo from "../../../assets/log.png";
 import { Link, Navigate } from "react-router-dom";
 import Alert from "../../alert/Alert";
+import { UserContext } from "../../../context/UserContext";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
-
+  const { setUserInfo } = useContext(UserContext);
   async function login(ev) {
     ev.preventDefault();
     const response = await fetch("http://localhost:5000/auth/login", {
@@ -18,12 +19,12 @@ const Login = () => {
       credentials: "include",
     });
     if (response.ok) {
-      // response.json().then((userInfo) => {
-      // setUserInfo(userInfo);
-      setRedirect(true);
-      // }
+      response.json().then((userInfo) => {
+        setUserInfo(userInfo);
+        setRedirect(true);
+      });
     } else {
-      Alert("fail", "OOPS! Try again");
+      alert("wrong credentials");
     }
   }
 

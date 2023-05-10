@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Combinenav from "../../Nav/Combinednav/Combinenav";
 import Mainfooter from "../../footer/Mainfooter/Maingooter";
 import Subfooter from "../../footer/Subfooter/Subfooter";
-import "./addsession.css";
+import "../AddSession/addsession.css";
 import Reactquill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Editor from "../../Editor/Editor";
 import { Navigate } from "react-router-dom";
-const Addsession = () => {
+const Editsession = () => {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
@@ -31,7 +31,7 @@ const Addsession = () => {
   }
 
   if (redirect) {
-    return <Navigate to={"/sessions"} />;
+    return <Navigate to={"/"} />;
   }
   return (
     <>
@@ -83,4 +83,4 @@ const Addsession = () => {
   );
 };
 
-export default Addsession;
+export default Editsession;

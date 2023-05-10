@@ -1,43 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Combinenav from "../../Nav/Combinednav/Combinenav";
 import Subfooter from "../../footer/Subfooter/Subfooter";
 import Maingooter from "../../footer/Mainfooter/Maingooter";
 import "./viewsession.css";
 import fakedata from "./Viewfake";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { formatISO9075 } from "date-fns";
+import moment from 'moment';
 
-const ViewSession = () => {
+
+export default function ViewSession({
+  _id,
+  title,
+  summary,
+  cover,
+  content,
+  createdAt,
+  author,
+}) {
   return (
     <div>
-      <Combinenav />
+      {/* <Combinenav /> */}
 
-      {fakedata.map((fake) => {
-        return (
-          <>
-            <div className="card">
-              <div className="card__img">
-                <img className="card__img1" src={fake.img} alt="" />
-              </div>
-              <div className="card__details">
-                <Link to="/session">
-                  <h1 className="card__title">{fake.title}</h1>
-                </Link>
+      <div className="card">
+        <div className="card__img">
+          <Link to={`/post/${_id}`}>
+            <img
+              className="card__img1"
+              src={"http://localhost:5000/" + cover}
+              alt=""
+            />
+          </Link>
+        </div>
+        <div className="card__details">
+          <Link to="/session">
+            <h1 className="card__title">{title}</h1>
+          </Link>
 
-                <div className="card__user">
-                  <h2 className="username">{fake.author}</h2>
-                  <h2 className="date">{fake.date}</h2>
-                </div>
-                <p className="card__para">{fake.para}</p>
-              </div>
-            </div>
-          </>
-        );
-      })}
-
-      <Maingooter />
-      <Subfooter />
+          <div className="card__user">
+            <h2 className="username">{author.username}</h2>
+            <h2 className="date">{moment(createdAt).fromNow()}</h2>
+          </div>
+          <p className="card__para">{summary}</p>
+        </div>
+      </div>
+      {/* <Maingooter /> */}
+      {/* <Subfooter /> */}
     </div>
   );
-};
+}
 
-export default ViewSession;
+// export default ViewSession;
