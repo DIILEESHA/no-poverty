@@ -5,7 +5,8 @@
 
 .single__session__img img {
   margin-top: 40px;
-  width: 96%;
+  width: 98%;
+  text-align: center;
   height: 50vh;
   object-fit: cover;
 }

@@ -1,4 +1,4 @@
-import "./app.css";
+import "./App.css";
 import Home from "./pages/Home/Home";
 import Login from "./components/logger/Login/Login";
 import Signup from "./components/logger/Signup/Signup";
@@ -8,7 +8,6 @@ import SingleSession from "./components/sessions/SingleSession/SingleSession";
 import Addsession from "./components/sessions/AddSession/Addsession";
 import About from "./pages/Aboutus/About";
 import "@stripe/stripe-js";
-
 import View from "./components/sehan/View";
 import Edit from "./components/sehan/Edit";
 import Details from "./components/sehan/Details";
