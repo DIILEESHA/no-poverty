@@ -61,7 +61,7 @@ export default function ViewSingleEvent() {
 
             <Combinenav />
 
-            <div style={{ width: '100%', opacity: '70%', backgroundSize: 'cover', backgroundImage: `url('https://www.thebalancemoney.com/thmb/j65dIWXtJFEPmjo1qkZ2cyBsNII=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/job-fair-498213851-5b300e588e1b6e00366f8179.jpg')` }}>
+            <div style={{ width: '100%', opacity: '70%', backgroundSize: 'cover', backgroundImage: `url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29ya3Nob3AlMjBzZXNzaW9ufGVufDB8fDB8fA%3D%3D&w=1000&q=80')` }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <Card sx={{ width: '75%', height: '100%', mt: 5, mb: 4, ml: 3, mr: 3, bgcolor: '#ffffff', borderRadius: '10px' }}>
                         

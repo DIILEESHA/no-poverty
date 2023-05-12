@@ -118,7 +118,7 @@ export default function UpdateEvents() {
       });
 
     setTimeout(() =>
-    window.location.replace('http://localhost:3000/Events/')
+    window.location.replace(`http://localhost:3000/Events/VIewEvent/${id}`)
   , 2500);
 }
 

@@ -56,7 +56,7 @@ export default function ViewEvents() {
                     </div>
                         <h1 style={{ marginBottom: 20,textAlign:'center' }}>Events</h1>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
-                <List sx={{columnCount:3,maxWidth:920}}>
+                <List sx={{columnCount:3,maxWidth:920,width:'100%'}}>
 
                         {events.map((val) => {
                             return (
