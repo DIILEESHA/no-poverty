@@ -16,10 +16,10 @@ import Donate from "./components/donate/Donate";
 import Sponsor from "./components/sponsor/Sponsor";
 import Cancel from "./components/Cardalert/failure/Cancel";
 import { UserContextProvider } from "./context/UserContext";
-import Viewsession from "./components/sessions/ViewSession/ViewSession";
+// import Viewsession from "./components/sessions/ViewSession/ViewSession";
 import Editsession from "./components/sessions/Editsession/Editsession";
 import Index from './components/sessions/index'
-import ViewSession from "./components/sessions/ViewSession/ViewSession";
+// import ViewSession from "./components/sessions/ViewSession/ViewSession";
 
 function App() {
   return (
