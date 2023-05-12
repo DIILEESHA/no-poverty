@@ -31,8 +31,13 @@ mongoose
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => {
-  console.log(`Server Running on Port - ${port}`);
+const productRouter = require("./routes/product.js");
+app.use("/add", require("./routes/product"));
+
+app.use("/product", productRouter);
+//app listen port
+app.listen(5000, () => {
+  console.log("server running on port 5000");
 });
 
 app.use("/auth", require("./routes/Login"));

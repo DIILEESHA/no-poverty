@@ -7,10 +7,11 @@ import Layout from "./components/Layout/Layout";
 import SingleSession from "./components/sessions/SingleSession/SingleSession";
 import Addsession from "./components/sessions/AddSession/Addsession";
 import About from "./pages/Aboutus/About";
+import "@stripe/stripe-js";
+
 import View from "./components/sehan/View";
 import Edit from "./components/sehan/Edit";
 import Details from "./components/sehan/Details";
-import "@stripe/stripe-js";
 import New from "./components/sehan/New";
 import Donate from "./components/donate/Donate";
 import Sponsor from "./components/sponsor/Sponsor";
