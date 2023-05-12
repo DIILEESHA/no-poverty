@@ -6,7 +6,7 @@ import { FaDonate } from "react-icons/fa";
 import { UserContext } from "../../../context/UserContext";
 
 const Mainnav = () => {
-  const {setUserInfo,userInfo} = useContext(UserContext);
+  const { setUserInfo, userInfo } = useContext(UserContext);
   useEffect(() => {
     fetch("http://localhost:5000/auth/profile", {
       credentials: "include",
@@ -18,11 +18,12 @@ const Mainnav = () => {
   }, []);
 
   function logout() {
-    fetch("http://localhost:5000/auth/log/logout", {
+    fetch("http://localhost:5000/auth/logout", {
       credentials: "include",
       method: "POST",
     });
     setUserInfo(null);
+    window.location.reload();
   }
 
   const [colorChange, setColorchange] = useState(false);
@@ -110,7 +111,7 @@ const Mainnav = () => {
               </button>
             </Link>
             <button className="nav__btn" onClick={logout}>
-              logout
+              logout {username}
             </button>
           </>
         )}

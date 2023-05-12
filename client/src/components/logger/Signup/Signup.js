@@ -49,7 +49,7 @@ const Login = () => {
                 className="login__input__combiner"
                 required
                 value={email}
-                // onChange={(ev) => setEmail(ev.target.value)}
+                onChange={(ev) => setEmail(ev.target.value)}
               />
             </div>
             <div className="log__conditions">

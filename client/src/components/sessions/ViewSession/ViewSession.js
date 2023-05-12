@@ -35,7 +35,7 @@ export default function ViewSession({
         </div>
         <div className="card__details">
           <Link to="/session">
-            <h1 className="card__title">{title}</h1>
+            <h1 className="card__title">{title.slice(0,30)}...</h1>
           </Link>
 
           <div className="card__user">

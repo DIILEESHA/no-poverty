@@ -40,3 +40,25 @@
   margin-bottom: 100px;
   text-align: justify;
 }
+
+.edit-row {
+  position: absolute;
+  right: 25px;
+  display: flex;
+  gap: 5px;
+  /* margin-right: 20px; */
+}
+.edit-btn {
+  border: none;
+  background-color: crimson;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.tryq {
+  font-size: 20px;
+  padding: 5px;
+  color: aliceblue;
+}
+.edit-btn:nth-child(2){
+background-color: teal;
+}

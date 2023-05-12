@@ -49,12 +49,11 @@ router.put("/post", uploadMiddleware.single("file"), async (req, res) => {
     if (!isAuthor) {
       return res.status(400).json("you are not the author");
     }
-    await postDoc.update({
-      title,
-      summary,
-      content,
-      cover: newPath ? newPath : postDoc.cover,
-    });
+    postDoc.title = title;
+    postDoc.summary = summary;
+    postDoc.content = content;
+    postDoc.cover = newPath ? newPath : postDoc.cover;
+    await postDoc.save();
 
     res.json(postDoc);
   });
@@ -68,6 +67,40 @@ router.get("/post", async (req, res) => {
       .limit(20)
   );
 });
+
+router.delete('/post/:id', async (req, res) => {
+  const { id } = req.params;
+
+  const { token } = req.cookies;
+  if (!token) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  jwt.verify(token, secret, {}, async (err, info) => {
+    if (err) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const postDoc = await Post.findById(id);
+    const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id);
+
+    if (!isAuthor) {
+      return res.status(400).json({ message: "You are not the author" });
+    }
+
+    // remove the post cover image from the file system
+    if (postDoc.cover) {
+      fs.unlinkSync(postDoc.cover);
+    }
+
+    await Post.findByIdAndDelete(id);
+
+    res.json({ message: "Post deleted successfully" });
+  });
+});
+
+
+
 
 router.get("/post/:id", async (req, res) => {
   const { id } = req.params;
