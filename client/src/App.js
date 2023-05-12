@@ -19,6 +19,7 @@ import "@stripe/stripe-js";
 import New from "./components/sehan/New";
 import Donate from "./components/donate/Donate";
 import Sponsor from "./components/sponsor/Sponsor";
+import ViewSingleEvent from "./components/Events/ViewSingleEvent";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/Events" element={<Events />} />
           <Route path="/Events/Add" element={<AddEvent />} />
+          <Route path="/Events/ViewEvent/:id" element={<ViewSingleEvent />} />
           <Route path="/Events/Update/:id" element={<UpdateEvent />} />
           <Route path="/" element={<Layout />} />
           <Route index element={<Home />} />

@@ -62,7 +62,7 @@ export default function ViewEvents() {
                             return (
                                 <ListItem  alignItems="flex-start" sx={{ width:350,mb:4,ml:3,mr:3, bgcolor: '#C0C0C0', borderRadius: '10px' }}>
                                     <Card  sx={{ mr: 3, ml: 3 ,height:375}}>
-                                        <CardActionArea href={`http://localhost:3000/Events/update/${val._id}`}>
+                                        <CardActionArea href={`http://localhost:3000/Events/VIewEvent/${val._id}`}>
                                             <CardMedia
                                                 component="img"
                                                 height="140"
@@ -83,7 +83,7 @@ export default function ViewEvents() {
                                             </CardContent>
                                         </CardActionArea>
                                         <CardActions>
-                                            <Button href={`http://localhost:3000/Events/update/${val._id}`} size="small" color="primary">
+                                            <Button href={`http://localhost:3000/Events/ViewEvent/${val._id}`} size="small" color="primary">
                                                 See More
                                             </Button>
                                         </CardActions>
