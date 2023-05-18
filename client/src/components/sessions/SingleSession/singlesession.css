@@ -4,11 +4,12 @@
 }
 
 .single__session__img img {
-  margin-top: 40px;
+  margin-top: 25px;
   width: 98%;
+  border-radius: 5px;
   text-align: center;
-  height: 50vh;
-  object-fit: cover;
+  height: 70vh;
+  /* object-fit: cover; */
 }
 
 .single__session__img {

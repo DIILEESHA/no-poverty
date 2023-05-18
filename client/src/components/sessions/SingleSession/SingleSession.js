@@ -4,19 +4,34 @@ import Combinenav from "../../Nav/Combinednav/Combinenav";
 import Maingooter from "../../footer/Mainfooter/Maingooter";
 import Subfooter from "../../footer/Subfooter/Subfooter";
 import { UserContext } from "../../../context/UserContext";
-import { Link, useParams, useHistory, Navigate } from "react-router-dom";
+import {
+  Link,
+  useParams,
+  useHistory,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import { formatISO9075 } from "date-fns";
 import { BiEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import moment from "moment";
 import BarLoader from "react-spinners/BarLoader";
+import axios from "axios";
 
 const SingleSession = () => {
+  const navigate = useNavigate();
+
   const [postInfo, setPostInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
+  const [isDeleted, setIsDeleted] = useState(false);
+
   // const history = useHistory(); // add this line
+
+  useEffect(() => {
+    // load();
+  }, []);
 
   useEffect(() => {
     fetch(`http://localhost:5000/posts/post/${id}`).then((response) => {
@@ -27,28 +42,52 @@ const SingleSession = () => {
     });
   }, [id]);
 
-  const handleDelete = () => {
-    const token = userInfo.token;
-    fetch(`http://localhost:5000/posts/post/${postInfo._id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((response) => {
-      if (response.ok) {
-        // redirect to home page if the post was deleted successfully
-        // history.push("/");
-        <Navigate to={"/"} />;
-      } else {
-        // show an error message if the delete operation failed
-        response.json().then((data) => {
-          alert(`Failed to delete post: ${data.message}`);
-        });
-      }
-    });
+  // const handleDelete = () => {
+  //   const token = userInfo.token;
+  //   fetch(`http://localhost:5000/posts/post/${postInfo._id}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       // Authorization: `Bearer ${token}`,
+  //     },
+  //   }).then((response) => {
+  //     if (response.ok) {
+  //       <Navigate to={"/"} />;
+  //     } else {
+  //       response.json().then((data) => {
+  //         alert(`Failed to delete post: ${data.message}`);
+  //       });
+  //     }
+  //   });
+  // };
+
+  // const handleDelete = async (id) => {
+  //   await axios
+  //     .delete(`http://localhost:5000/posts/post/${postInfo._id}`, {})
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         <Navigate to={"/"} />;
+  //       } else {
+  //         response.json().then((data) => {
+  //           alert(`Failed to delete post: ${data.message}`);
+  //         });
+  //       }
+  //     });
+  // };
+
+  const deletePost = async () => {
+    try {
+      await axios.delete(`http://localhost:5000/posts/post/${id}`);
+      setIsDeleted(true);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  
+  if (isDeleted) {
+    // history.push("/");
+    navigate("/sessions");
+  }
+
   if (isLoading) {
     return (
       <div className="loader-container">
@@ -76,7 +115,7 @@ const SingleSession = () => {
                 <BiEdit className="tryq" />
               </button>{" "}
             </Link>
-            <button className="edit-btn" onClick={handleDelete}>
+            <button className="edit-btn" onClick={deletePost}>
               {" "}
               {/* add onClick handler */}
               <AiFillDelete className="tryq" />

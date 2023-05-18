@@ -68,39 +68,11 @@ router.get("/post", async (req, res) => {
   );
 });
 
-router.delete('/post/:id', async (req, res) => {
+router.delete("/post/:id", async (req, res) => {
   const { id } = req.params;
-
-  const { token } = req.cookies;
-  if (!token) {
-    return res.status(401).json({ message: "Unauthorized" });
-  }
-
-  jwt.verify(token, secret, {}, async (err, info) => {
-    if (err) {
-      return res.status(401).json({ message: "Unauthorized" });
-    }
-
-    const postDoc = await Post.findById(id);
-    const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id);
-
-    if (!isAuthor) {
-      return res.status(400).json({ message: "You are not the author" });
-    }
-
-    // remove the post cover image from the file system
-    if (postDoc.cover) {
-      fs.unlinkSync(postDoc.cover);
-    }
-
-    await Post.findByIdAndDelete(id);
-
-    res.json({ message: "Post deleted successfully" });
-  });
+  await Post.findByIdAndDelete(id);
+  res.status(201).json({ message: "delete successfully" });
 });
-
-
-
 
 router.get("/post/:id", async (req, res) => {
   const { id } = req.params;

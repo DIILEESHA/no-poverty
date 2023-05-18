@@ -28,22 +28,20 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} /> 
-            <Route index element={<Home />} />
             <Route path="/signup" element={<Signup />} />
+            <Route index element={<Home />} />
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<About />} />
+            <Route path="/donate" element={<Donate />} />
+            <Route path="/sponsor-a-child" element={<Sponsor />} />
             <Route path="/create" element={<Addsession />} />
             <Route path="/edit/:id" element={<Editsession />} />
-            {/* <Route index element={<Index />} /> */}
-
-            <Route path="/sessions" element={<Index />} />
             <Route path="/post/:id" element={<SingleSession />} />
+            <Route path="/sessions" element={<Index />} />
             <Route path="/view" element={<View />} />
             <Route path="/details" element={<Details />} />
             <Route path="/edit" element={<Edit />} />
             <Route path="/new" element={<New />} />
-            <Route path="/donate" element={<Donate />} />
-            <Route path="/sponsor-a-child" element={<Sponsor />} />
             <Route path="/cancel" element={<Cancel />} />
           </Routes>
         </BrowserRouter>

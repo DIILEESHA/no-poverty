@@ -45,13 +45,13 @@
   }
   
   input[type=text] {
-    width: 60%;
-    padding: 15px;
+    /* width: 60%; */
+    /* padding: 15px; */
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical;
-    margin:10px 75px ;
-    text-align: center;
+    /* resize: vertical; */
+    /* margin:10px 75px ; */
+    /* text-align: center; */
   }
 
   #inputdescription {
@@ -92,7 +92,7 @@
   }
   
   input[type=file] {
-      margin:-5px 120px;
+      /* margin:-5px 120px; */
   
   }
   
