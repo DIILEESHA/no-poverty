@@ -179,7 +179,7 @@ return (
           }}
         >
           <Typography component="h1" variant="h5" sx={{ marginTop: 5 }}>
-            Event Details
+           Update Your Event 
           </Typography>
           <div
             style={{
