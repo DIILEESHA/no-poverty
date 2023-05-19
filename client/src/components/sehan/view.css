@@ -1,3 +1,14 @@
+#body5 {
+  background-image: url("https://img.freepik.com/free-vector/white-cylinder-pedestal-podium-light-blue-empty-room-with-green-palm-leaf-blue-white-sphere-rendering-3d-shape_453038-16.jpg");
+  background-attachment: fixed;
+  background-size: auto;
+  /* height: 100vh; */
+  margin: 0px auto;
+  display: flex;align-items: center;justify-content: center;
+}
+
+
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -14,12 +25,15 @@ table {
   
   tr{
     height: 160px;
+    background-color: rgb(215, 247, 244);
+    
     
   }
 
   #t1{
       font-size: 40px;
-      background-color: rgb(148, 238, 58);
+      background-color: rgb(124, 206, 42);
+     
   }
 
   tr:hover 
@@ -32,16 +46,16 @@ table {
   #btnv{
     background-color: #3eee38;
     color: white;
-    padding: 12px 30px;
+    padding: 12px 40px;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px;
     cursor: pointer;
     float: right;
     margin:65px 100px;
   }
 
   #imgv {
-    border: 1px solid #ddd;
+    border: 1px solid #4e4545;
     border-radius: 4px;
     padding: 10px;
     width: 150px;
@@ -72,14 +86,79 @@ table {
   margin:-65px 165px;
 }
 
-#searchbar{
-  width: 20%;
-  height: 20%;
-  padding: 10px;
-  border: 1px solid #111111;
+
+#srchform{
+  width: 450px;
+  border: 1px solid #252323;
   border-radius: 4px;
   resize: vertical;
-  margin:20px 500px -70px ;
+  margin:25px 100px -50px 400px;
   text-align: center;
 }
 
+
+
+
+
+
+#btnAdd{
+  background-color: #1e71cff5;
+  color: white;
+  padding: 11px 11px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  float: right;
+  margin:10px 8px;
+  
+}
+
+
+/*---------------------- Search Panel ----------------------*/
+
+
+
+
+
+.searchBar {
+  width: 1000px;
+  float: right;
+  margin: 25px 180px -60px 250px; 
+}
+
+.searchBar input {
+  width: 100px;
+  height: 20px;
+  padding: 0px 4px;
+  border-radius: 3px 0px 0px 3px;
+  
+}
+
+.searchBar button {
+  width: 49px;
+  height: 50px;
+  background-color: rgb(64,64,64);
+  border: 2px solid rgb(64,64,64);
+  border-radius: 0px 3px 3px 0px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: -60.5px -90px 100px 736px ;
+}
+
+.searchBar button svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+#reportbtn{
+  background-color: #e44c38;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin:70px 10px -80px 0px;
+}

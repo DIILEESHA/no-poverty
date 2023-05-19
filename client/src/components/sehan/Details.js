@@ -5,15 +5,21 @@ import { Link,useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./details.css";
 import axios from "axios";
+import Combinenav from "../Nav/Combinednav/Combinenav";
+import Subfooter from '../footer/Subfooter/Subfooter'
+import Maingooter from '../footer/Mainfooter/Maingooter'
 
 
 const Details = () => {
+  
 
+  const [products,setProducts]= useState([]);
   const [productname, setProductname] = useState("");
   const [unitprice, setUnitprice] = useState("");
   const [sellername, setSellername] = useState("");
   const [contactno, setContactno] = useState("");
   const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
   const { id } = useParams();
 
 
@@ -27,6 +33,7 @@ const Details = () => {
           setSellername(res.data.product.sellername);
           setContactno(res.data.product.contactno);
           setDescription(res.data.product.description);
+          setImage(res.data.product.image);
           
         }
       }).catch((err)=>{
@@ -36,7 +43,7 @@ const Details = () => {
     }
 
     getProduct();
-  },[]);
+  },[id]);
 
 
   function deleteProduct(id){
@@ -58,7 +65,7 @@ const Details = () => {
         showConfirmButton:false,
       });
       setTimeout(() => {
-        window.location.replace("http://localhost:3000/view");
+        window.location.replace("http://localhost:3000/market/view");
         
       });
     
@@ -74,14 +81,14 @@ const Details = () => {
   }
 
   return (
+    <div>
+      <Combinenav />
     <div id="body3">
+       
       <form id="f1">
         <h1 id="fz">Product Details</h1>
-        <img
-          src="https://i.pinimg.com/736x/b9/02/b9/b902b9aad58334dd19ad738bfb0083a2--broom-corn-things-i-want.jpg"
-          id="imgd"
-        />
-
+        <img src={`http://localhost:5000/${image}`} id="imgd"/>
+      
         <table id="tb1">
           <tr id="tr1">
             <td id="td1">Product Name</td>
@@ -109,17 +116,20 @@ const Details = () => {
           </tr>
         </table>
 
-        <Link to={`/edit/${id}`}>
+        <Link to={`/market/edit/${id}`}>
           
           <button id="btnedit">Edit</button>
         </Link>
-        <Link to={`/details/${id}`}>
+        <Link to={`/market/details/${id}`}>
         
           <button onClick={()=>deleteProduct(id)} id="btndelete">
             Delete
           </button>
         </Link>
       </form>
+    </div>
+     <Subfooter />
+      <Maingooter />
     </div>
   );
 };

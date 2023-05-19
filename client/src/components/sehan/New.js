@@ -13,33 +13,62 @@ export default function New() {
   const [sellername, setSellername] = useState("");
   const [contactno, setContactno] = useState("");
   const [description, setDescription] = useState("");
+  const [image,setImage] = useState("");
 
-  function sendData(e) {
+  // function sendData(e) {
+  //   e.preventDefault();
+  //   // addTask(taskInp);
+  //   // e.target.reset()
+  //   const newProduct = {
+  //     productname: productname,
+  //     unitprice: unitprice,
+  //     sellername: sellername,
+  //     contactno: contactno,
+  //     description: description,
+  //     image: image,
+  //   };
+
+  const sendData = async (e) => {
     e.preventDefault();
-    // addTask(taskInp);
-    // e.target.reset()
-    const newProduct = {
-      productname: productname,
-      unitprice: unitprice,
-      sellername: sellername,
-      contactno: contactno,
-      description: description,
-    };
 
-    axios
-      .post("http://localhost:5000/product/add", newProduct)
-      .then(() => {
-        // alert("Product Added");
-        Alert("Product added", "product added successfully");
-      })
-      .catch((error) => {
-        alert(error);
-      });
+    let newProduct = new FormData();
+    newProduct.append("productname", productname);
+    newProduct.append("unitprice", unitprice);
+    newProduct.append("sellername", sellername);
+    newProduct.append("contactno", contactno);
+    newProduct.append("description", description);
+    newProduct.append("image", image);
 
-      setTimeout(()=> {
-        window.location.replace("http://localhost:3000/view");
-      },1500)
-  }
+    axios.post("http://localhost:5000/product/new", newProduct).then(() => {
+
+
+    }).catch((err) => {
+        alert(err)
+    });
+
+    setTimeout(()=> {
+      window.location.replace("http://localhost:3000/market/view");
+    },1500)
+}
+
+
+
+
+   
+  //   axios
+  //     .post("http://localhost:5000/product/add", newProduct)
+  //     .then(() => {
+  //       // alert("Product Added");
+  //       Alert("Product added", "product added successfully");
+  //     })
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+
+  //     setTimeout(()=> {
+  //       window.location.replace("http://localhost:3000/view");
+  //     },1500)
+  // }
 
 
   return (
@@ -109,15 +138,19 @@ export default function New() {
             </div>
             <div class="custom-file">
               <input
+                accept="image/*"
                 type="file"
                 class="custom-file-input"
                 id="validatedCustomFile"
-                required
+                onChange={(e) => {
+                setImage(e.target.files[0]);
+               }}
+                
               />
               <p id="pnew">Upload Product Image</p>
             </div>
             <div>
-              <Link to="/view">
+              <Link to="/market/view">
                 {" "}
                 <input type="submit" onClick={sendData} id="btn1" />
                 

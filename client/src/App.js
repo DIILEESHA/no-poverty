@@ -33,10 +33,10 @@ function App() {
           <Route path="/sessions" element={<ViewSession />} />
           <Route path="/session" element={<SingleSession />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/view" element={<View />} />
-          <Route path="/details/:id" element={<Details />} />
-          <Route path="/edit/:id" element={<Edit />} />
-          <Route path="/new" element={<New />} />
+          <Route path="/market/view" element={<View />} />
+          <Route path="/market/details/:id" element={<Details />} />
+          <Route path="/market/edit/:id" element={<Edit />} />
+          <Route path="/market/new" element={<New />} />
           
           <Route path="/donate" element={<Donate />} />
           <Route path="/sponsor-a-child" element={<Sponsor />} />

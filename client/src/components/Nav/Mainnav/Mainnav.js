@@ -79,7 +79,7 @@ const Mainnav = () => {
               colorChange ? "nav__li__section colorChange" : "nav__li__section"
             }
           >
-            sessions
+            Blog
           </li>
         </Link>
         <li
@@ -89,7 +89,25 @@ const Mainnav = () => {
         >
           jobs
         </li>
-      </div>
+      <Link to="/market/view">
+          <li
+            className={
+              colorChange ? "nav__li__section colorChange" : "nav__li__section"
+            }
+            >
+            Market
+          </li>
+        </Link>
+        <Link to="/events">
+          <li
+            className={
+              colorChange ? "nav__li__section colorChange" : "nav__li__section"
+            }
+            >
+            Events
+          </li>
+        </Link>
+            </div>
 
       <div className="nav__credention__btn__section">
         <Link to="/donate">

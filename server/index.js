@@ -5,9 +5,14 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 
+
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 // app.use(cookieparser());
 app.use(express.json());
+// Serve static files from the "Media" folder
+const serveStatic = require("serve-static");
+app.use("/media", serveStatic("Media"));
+app.use(express.static('Media'))
 
 //mongoose connection
 mongoose

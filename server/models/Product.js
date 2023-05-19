@@ -11,7 +11,7 @@ const productSchema = new Schema({
   },
 
   unitprice : {
-    type : Number,
+    type : String,
     required : true
   },
 
@@ -21,7 +21,7 @@ const productSchema = new Schema({
   },
 
   contactno : {
-    type : Number,
+    type : String,
     required : true
   },
 
@@ -31,9 +31,10 @@ const productSchema = new Schema({
   },
 
   image : {
-    type : Boolean,
- 
+    type : String,
+    required: true
   },
+
 
 })
 

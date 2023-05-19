@@ -28,20 +28,21 @@
   
   
   #form1{  
-    background-color: #666363;
+    background-color: #666363de;
     
     border-radius: 20px;
     /* padding:10px 10px 10px 10px; */
-    width:400px;
+    width:600px;
     /* margin:200px 450px; */
-    height: 580px;
+    height: 590px;
       
   }
   
   h1{
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: azure;
+    margin: 10px;
   }
   
   input[type=text] {
@@ -50,16 +51,16 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
-    margin:10px 75px ;
+    margin:10px 105px ;
     text-align: center;
   }
 
   #inputdescription {
     width: 50%;
-    padding: 35px;
+    padding: 45px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin:10px 75px ;
+    margin:10px 105px ;
     resize: vertical;
     text-align: center;
   }
@@ -71,7 +72,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
-    margin:10px 75px ;
+    margin:10px 105px ;
     text-align: center;
   }
   
@@ -79,12 +80,12 @@
   input[type=submit] {
     background-color: #22aa78;
     color: white;
-    padding: 12px 30px;
+    padding: 12px 40px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     float: right;
-    margin:-70px 150px;
+    margin:-70px 250px;
   }
   
   input[type=submit]:hover {
@@ -92,12 +93,12 @@
   }
   
   input[type=file] {
-      margin:-5px 120px;
+      margin:-5px 210px;
   
   }
   
   #pnew {
-      margin: 10px 100px 100px 130px;
+      margin: 10px 0px 100px 230px;
       width: 200px;
       color: rgb(202, 209, 209);
     }
