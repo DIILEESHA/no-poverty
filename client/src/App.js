@@ -1,9 +1,17 @@
+
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Login from "./components/logger/Login/Login";
 import Signup from "./components/logger/Signup/Signup";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+
+import Events from "./components/Events/ViewEvents"
+import AddEvent from "./components/Events/AddEvent"
+import UpdateEvent from "./components/Events/UpdateEvent"
+
+import ViewSession from "./components/sessions/ViewSession/ViewSession";
+
 import SingleSession from "./components/sessions/SingleSession/SingleSession";
 import Addsession from "./components/sessions/AddSession/Addsession";
 import About from "./pages/Aboutus/About";
@@ -14,6 +22,7 @@ import Details from "./components/sehan/Details";
 import New from "./components/sehan/New";
 import Donate from "./components/donate/Donate";
 import Sponsor from "./components/sponsor/Sponsor";
+import ViewSingleEvent from "./components/Events/ViewSingleEvent";
 import Cancel from "./components/Cardalert/failure/Cancel";
 import { UserContextProvider } from "./context/UserContext";
 // import Viewsession from "./components/sessions/ViewSession/ViewSession";
@@ -43,10 +52,15 @@ function App() {
             <Route path="/edit" element={<Edit />} />
             <Route path="/new" element={<New />} />
             <Route path="/cancel" element={<Cancel />} />
+              <Route path="/Events" element={<Events />} />
+          <Route path="/Events/Add" element={<AddEvent />} />
+          <Route path="/Events/ViewEvent/:id" element={<ViewSingleEvent />} />
+          <Route path="/Events/Update/:id" element={<UpdateEvent />} />
           </Routes>
         </BrowserRouter>
       </div>
     </UserContextProvider>
+
   );
 }
 

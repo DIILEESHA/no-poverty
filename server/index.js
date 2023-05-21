@@ -29,7 +29,16 @@ mongoose
   .then(() => console.log("Database Successfully Connected"))
   .catch((error) => console.log(error));
 
+
+//routes
+app.use("/auth", require("./routes/Login"));
+app.use("/auth/sign", require("./routes/Login"));
+app.use("/auth/profile", require("./routes/Login"));
+app.use("/auth/log", require("./routes/Login"));
+app.use("/events", require("./routes/Event"));
+
 const port = process.env.PORT || 5000;
+
 
 const productRouter = require("./routes/product.js");
 app.use("/add", require("./routes/product"));
