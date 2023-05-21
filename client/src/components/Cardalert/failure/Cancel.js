@@ -2,7 +2,7 @@ import React from 'react'
 
 const Cancel = () => {
   return (
-    <div>Canceddl</div>
+    <div>Canceddlssss</div>
   )
 }
 
