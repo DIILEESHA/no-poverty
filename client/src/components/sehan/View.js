@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 import { Link } from "react-router-dom"
+import './view.css'
 
 
 const View = () => {

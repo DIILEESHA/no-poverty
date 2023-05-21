@@ -1,26 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./mainnav.css";
 import { Link } from "react-router-dom";
 import { GrAddCircle } from "react-icons/gr";
 import { FaDonate } from "react-icons/fa";
+import { UserContext } from "../../../context/UserContext";
 
 const Mainnav = () => {
-  const [username, setUsername] = useState(null);
+  const { setUserInfo, userInfo } = useContext(UserContext);
   useEffect(() => {
     fetch("http://localhost:5000/auth/profile", {
       credentials: "include",
     }).then((response) => {
       response.json().then((userImp) => {
-        setUsername(userImp.username);
+        setUserInfo(userImp);
       });
     });
   }, []);
 
   function logout() {
-    fetch("http://localhost:5000/auth/log/logout", {
+    fetch("http://localhost:5000/auth/logout", {
       credentials: "include",
       method: "POST",
     });
+    setUserInfo(null);
+    window.location.reload();
   }
 
   const [colorChange, setColorchange] = useState(false);
@@ -36,6 +39,8 @@ const Mainnav = () => {
   const goContact = () => {
     window.location = "/sessions";
   };
+
+  const username = userInfo?.username;
   return (
     <div
       className={
@@ -79,7 +84,7 @@ const Mainnav = () => {
               colorChange ? "nav__li__section colorChange" : "nav__li__section"
             }
           >
-            sessions
+            blogs
           </li>
         </Link>
         <li
@@ -108,14 +113,14 @@ const Mainnav = () => {
         </Link>
         {username && (
           <>
-            <Link to="/create-session">
+            <Link to="/create">
               <button className="nav__btn">
                 <GrAddCircle className="dfg" />
                 create post
               </button>
             </Link>
             <button className="nav__btn" onClick={logout}>
-              logout
+              logout {username}
             </button>
           </>
         )}

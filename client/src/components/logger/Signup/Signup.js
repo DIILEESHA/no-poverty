@@ -6,24 +6,20 @@ import Alert from "../../alert/Alert";
 
 const Login = () => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //add the details and submit the details . Auto refresh the page
+  const [email, setEmail] = useState("");
   async function register(ev) {
     ev.preventDefault();
 
-    const response = await fetch("http://localhost:5000/auth/sign/signup", {
+    const response = await fetch("http://localhost:5000/auth/register", {
       method: "POST",
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
     });
     if (response.status === 200) {
-      Alert("success", "Registration is successfully!");
+      alert("registration successful");
     } else {
-      // Alert("failed", "Registration failed.");
-      Alert("fail", "Registration is failed!");
-
-      // alert('failed')
+      alert("registration failed");
     }
   }
   return (

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 import { Link } from "react-router-dom";
 import swal from "sweetalert2";
+
+import "./details.css";
+
 
 const Details = () => {
   function selfies() {
@@ -22,7 +25,7 @@ const Details = () => {
   }
 
   return (
-    <div>
+    <div id="body3">
       <form id="f1">
         <h1 id="fz">Product Details</h1>
         <img
