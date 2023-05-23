@@ -18,20 +18,32 @@ There are so many ways for added the site for reduct the poverty
  </ul>
  
  
- <h2>Used languages</h2>
+ <h2>Technologies : </h2>
+  <h3>Separate languages and IDE</h3>
  <ul>
+ <li>VS code</li>
  <li>ReactJs</li>
  <li>ExpressJs</li>
  <li>MongoDB</li>
  <li>Separate packages</li>
  </ul>
  
- <h2>Clone the application</h2>
+ <h3>Tools : </h3>
+ <ul>
+ <li>Selenium</li>
+ <li>SonarQube</li>
+ <li>Azure Boards</li>
  
- <p>Copy the code url and use the <b>git clone <git repo></b></p>
- <p>Install the node modules and use the npm start and start the project</p>
- <p align="center">***</p>
- <hr/>
+ </ul>
+ 
+ <h2>prerequisite</h2>
+ <ul>
+ <li>Install VS code and install the separate packages</li>
+ <li>Nodejs has been is already or installed your local area</li>
+ </ul>
+
+ 
+ 
  
  
  
